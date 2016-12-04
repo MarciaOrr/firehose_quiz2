@@ -5,10 +5,47 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <meta='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'>
 </head>
-<body>
 
-<%= yield %>
+<body>
+  <header>
+    <div class='col-xs-3'>
+      <h1>Colorado Code Dogs</h1>
+    </div>
+    <div class='col-xs-4'>
+      <button class='btn btn-primary pull-right' data-toggle='modal' data-target='#myModalDogs'>
+        Add Your Dog
+      </button>
+    </div>
+  </header>
+
+  <!-- Dogs Model -->
+  <div class='modal fade' id='myModalDogs' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="myModalLabel">Add Your Colorado Code Dog</h4>
+        </div>
+        <%= simple_form_for Dog.new do |f| %>
+          <div class='modal-body'>
+            <%= f.input :name %>
+            <%= f.input :breed %>
+            <%= f.input :nickname %>
+          </div>
+          <div class='modal-footer'>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <%= f.submit 'Add Dog', class: 'btn btn-primary' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+<div class='container'>
+  <%= yield %>
+</div>
 
 </body>
 </html>
