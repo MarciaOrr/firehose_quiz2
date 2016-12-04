@@ -10,17 +10,25 @@
 
 <body>
   <header>
-    <div class='dog-header container col-xs-12 col-xs-offset-0 col-md-10 col-md-offset-1'>
-      <div class='col-xs-5'>
-        <h1>Colorado Code Dogs</h1>
+    <div class='container dog-header col-xs-12 col-xs-offset-0 col-md-10 col-md-offset-1'>
+      <div class='col-xs-8'>
+        <h1>My Dogs</h1>
       </div>
-      <div class='col-xs-5'>
-        <button class='btn btn-primary pull-right' data-toggle='modal' data-target='#myModalDogs'>
-          Add Your Dog
+      <div class='dog-add-btn col-xs-2'>
+        <button class='btn btn-primary' data-toggle='modal' data-target='#myModalDogs'>
+          Add Dog
         </button>
       </div>
     </div>
   </header>
+
+  <hr />
+  <div class='clear'></div>
+
+  <div class='container'>
+    <%= yield %>
+  </div>
+
 
   <!-- Dogs Model -->
   <div class='modal fade' id='myModalDogs' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>
@@ -28,14 +36,19 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title" id="myModalLabel">Add Your Colorado Code Dog</h4>
+          <h4 class="modal-title" id="myModalLabel">Describe Your Dog</h4>
         </div>
         <%= simple_form_for Dog.new do |f| %>
           <div class='modal-body'>
             <%= f.input :name %>
+            <br />
             <%= f.input :breed %>
+            <br />
             <%= f.input :nickname %>
-            <%= f.input :story %>
+            <br />
+            <%= f.input :birthday, start_year: Date.today.year - 25, end_year: Date.today.year %>
+            <br />
+            <%= f.input :story, :input_html => {:rows => 10, :cols => 60} %>
           </div>
           <div class='modal-footer'>
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -46,9 +59,6 @@
     </div>
   </div>
 
-<div class='container'>
-  <%= yield %>
-</div>
 
 </body>
 </html>
