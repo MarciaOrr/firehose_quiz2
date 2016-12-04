@@ -1,2 +1,66 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+/* ----- Classes ----- */
+.dog-header {
+  font-family: 'sf_wonder_comicbold_italic';
+  margin-top: 20px;
+
+  .btn.btn-primary {
+    background-color: green;
+  }
+}
+
+.dog-column {
+  .dog-story {
+    background: #ffe4c4;
+    p {
+      text-align: justify;
+      font-size: 16px;
+    }
+  }
+
+  > .dog-photos {
+    padding: 0;
+  }
+
+  .dog-caption {
+    font-size: 12px;
+    color: black;
+  }
+}
+
+.thumbnail {
+  background-color: transparent;
+}
+
+.clear { clear: both; }
+
+/* ----- Tags ----- */
+html {
+  height: 100%;
+}
+
+body {
+  background-image: url('/assets/backgroundTrees.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  font-family: 'Noto Sans', sans-serif;
+}
+  
+h1, h2 {
+  color: DarkGreen;
+  text-align: center;
+  font-weight: normal;
+}
+h1 {
+  font-family: 'sf_wonder_comicbold_italic';
+  font-size: 40px;
+}
+h2 {
+  font-family: 'sf_wonder_comicitalic';
+  font-size: 32px;
+}
+h3, h4 {
+  text-align: center;
+}
