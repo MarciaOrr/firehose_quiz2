@@ -47,13 +47,11 @@
   }
 }
 
-.dog-column {
-  .dog-story {
+.dog-column { 
+  p {
+    text-align: justify;
+    font-size: 14px;
     background: #ffe4c4;
-    p {
-      text-align: justify;
-      font-size: 16px;
-    }
   }
 }
 
@@ -93,3 +91,4 @@ hr {
   border-top: 4px double DarkGreen;
   clear: both;
 }
+
