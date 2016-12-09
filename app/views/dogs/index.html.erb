@@ -1,9 +1,13 @@
-<% @dogs.each do |dog | %>
+<% @dogs_sorted = @dogs.order('birthday DESC') %>
+<% @dogs_sorted.each_with_index do |dog, dog_index | %>
+  <% if dog_index % 2 == 0 %>
+    <div class='clear'></div>
+  <% end %>
   <div class='dog-column col-xs-12 col-md-6'>
     <h2><%=dog.name%></h2>
     <h3><%=dog.breed%><h3>
-    <h4><%= age_string(dog.birthday) %>
-    <h4>Nickname: <%=dog.nickname%></h4>
+    <h4><%= age_string(dog.birthday, dog.is_dead, dog.deathdate) %>
+     <h4>Nickname: <%=dog.nickname%></h4>
     <p><%=dog.story%></p>
   </div>
 <% end %>

@@ -48,6 +48,8 @@
             <br />
             <%= f.input :birthday, start_year: Date.today.year - 26, end_year: Date.today.year %>
             <br />
+            <%= f.input :is_dead %>
+            <%= f.input :deathdate, start_year: Date.today.year - 26, end_year: Date.today.year %>
             <%= f.input :story, :input_html => {:rows => 10, :cols => 60} %>
           </div>
           <div class='modal-footer'>
